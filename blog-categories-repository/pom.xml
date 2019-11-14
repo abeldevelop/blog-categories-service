@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.abeldevelop.blog.categories</groupId>
+		<artifactId>blog-categories</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>blog-categories-repository</artifactId>
+	<name>blog-categories-repository</name>
+	<description>Repository for Blog Categories Service</description>
+
+	<properties>
+
+	</properties>
+
+	<dependencies>
+		<!-- OWN SERVICE DEPENDECIES -->
+		<dependency>
+	       <groupId>com.abeldevelop.blog.categories</groupId>
+	       <artifactId>blog-categories-model</artifactId>
+	       <version>${parent.version}</version>
+	   </dependency>
+	</dependencies>
+
+	<build>
+
+	</build>
+
+</project>
