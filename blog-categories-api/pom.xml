@@ -19,7 +19,12 @@
 	</properties>
 
 	<dependencies>
-
+		<!-- OWN SERVICE DEPENDECIES -->
+		<dependency>
+	       <groupId>com.abeldevelop.blog.categories</groupId>
+	       <artifactId>blog-categories-dto</artifactId>
+	       <version>${parent.version}</version>
+	   </dependency>
 	</dependencies>
 
 	<build>
