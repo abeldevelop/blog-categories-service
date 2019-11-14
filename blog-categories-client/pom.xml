@@ -10,9 +10,9 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>blog-categories-dto</artifactId>
-	<name>blog-categories-dto</name>
-	<description>DTOs for Blog Categories Service</description>
+	<artifactId>blog-categories-client</artifactId>
+	<name>blog-categories-client</name>
+	<description>Feign Clients for Blog Categories Service</description>
 
 	<properties>
 

@@ -4,50 +4,27 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.1.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <groupId>com.abeldevelop.architecture</groupId>
+        <artifactId>architecture-parent-pom</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
     </parent>
 
     <groupId>com.abeldevelop.blog.categories</groupId>
     <artifactId>blog-categories</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <name>${project.artifactId}</name>
     <packaging>pom</packaging>
 
     <modules>
-    	<module>blog-categories-dto</module>
+		<module>blog-categories-model</module>
+		<module>blog-categories-repository</module>
+		<module>blog-categories-dto</module>
+		<module>blog-categories-api</module>
+		<module>blog-categories-client</module>
         <module>blog-categories-service</module>
     </modules>
 
     <properties>
-        <java.version>1.8</java.version>
-        <spring-cloud.version>Hoxton.RC2</spring-cloud.version>
-        
-        <servlet-api.version>2.5</servlet-api.version>
-		<swagger-annotations.version>1.5.24</swagger-annotations.version>
-		<springfox-swagger2.version>2.9.2</springfox-swagger2.version>
     </properties>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring-cloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
-    <repositories>
-        <repository>
-            <id>repository.spring.milestone</id>
-            <name>Spring Milestone Repository</name>
-            <url>http://repo.spring.io/milestone</url>
-        </repository>
-    </repositories>
 
 </project>

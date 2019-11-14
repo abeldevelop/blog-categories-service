@@ -10,9 +10,9 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>blog-categories-dto</artifactId>
-	<name>blog-categories-dto</name>
-	<description>DTOs for Blog Categories Service</description>
+	<artifactId>blog-categories-repository</artifactId>
+	<name>blog-categories-repository</name>
+	<description>Repository for Blog Categories Service</description>
 
 	<properties>
 

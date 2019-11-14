@@ -1,4 +1,4 @@
-package com.abeldevelop.blog.categories;
+package com.abeldevelop.blog.categories.service;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
