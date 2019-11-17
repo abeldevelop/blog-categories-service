@@ -11,6 +11,7 @@
 	</parent>
 
 	<artifactId>blog-categories-repository</artifactId>
+	
 	<name>blog-categories-repository</name>
 	<description>Repository for Blog Categories Service</description>
 
@@ -23,7 +24,7 @@
 		<dependency>
 	       <groupId>com.abeldevelop.blog.categories</groupId>
 	       <artifactId>blog-categories-model</artifactId>
-	       <version>${parent.version}</version>
+	       <version>${project.version}</version>
 	   </dependency>
 	</dependencies>
 
