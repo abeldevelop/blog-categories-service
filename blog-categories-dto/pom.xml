@@ -11,6 +11,7 @@
 	</parent>
 
 	<artifactId>blog-categories-dto</artifactId>
+	
 	<name>blog-categories-dto</name>
 	<description>DTOs for Blog Categories Service</description>
 

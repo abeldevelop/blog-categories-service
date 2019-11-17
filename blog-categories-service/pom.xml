@@ -10,12 +10,11 @@
 	</parent>
 	
 	<artifactId>blog-categories-service</artifactId>
+	
 	<name>blog-categories-service</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
-	   <!-- Take dinamic -->
-	   <parent.version>0.0.1-SNAPSHOT</parent.version>
 	</properties>
 
 	<dependencies>
@@ -23,12 +22,12 @@
 		<dependency>
 	       <groupId>com.abeldevelop.blog.categories</groupId>
 	       <artifactId>blog-categories-api</artifactId>
-	       <version>${parent.version}</version>
+	       <version>${project.version}</version>
 	   </dependency>
 	   <dependency>
 	       <groupId>com.abeldevelop.blog.categories</groupId>
 	       <artifactId>blog-categories-repository</artifactId>
-	       <version>${parent.version}</version>
+	       <version>${project.version}</version>
 	   </dependency>
 	   
 	   <!-- SPRING BOOT DEPENDECIES -->
