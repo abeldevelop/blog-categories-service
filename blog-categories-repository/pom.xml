@@ -26,6 +26,11 @@
 	       <artifactId>blog-categories-model</artifactId>
 	       <version>${project.version}</version>
 	   </dependency>
+	   <dependency>
+            <groupId>com.abeldevelop.architecture.starter</groupId>
+            <artifactId>repository-starter</artifactId>
+	   </dependency>
+	   
 	</dependencies>
 
 	<build>

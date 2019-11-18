@@ -10,19 +10,17 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>blog-categories-model</artifactId>
+	<artifactId>blog-categories-domain</artifactId>
 	
-	<name>blog-categories-model</name>
-	<description>Model for Blog Categories Service</description>
+	<name>blog-categories-domain</name>
+	<description>Domain Objects for Blog Categories Service</description>
 
 	<properties>
+
 	</properties>
 
 	<dependencies>
-        <dependency>
-            <groupId>com.abeldevelop.architecture.starter</groupId>
-            <artifactId>model-starter</artifactId>
-        </dependency>
+
 	</dependencies>
 
 	<build>

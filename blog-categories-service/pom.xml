@@ -29,13 +29,10 @@
 	       <artifactId>blog-categories-repository</artifactId>
 	       <version>${project.version}</version>
 	   </dependency>
-	   
-	   <!-- SPRING BOOT DEPENDECIES -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-	   
+            <groupId>com.abeldevelop.architecture.starter</groupId>
+            <artifactId>service-starter</artifactId>
+        </dependency>	   
 	</dependencies>
 
 	<build>

@@ -5,7 +5,7 @@
 
     <parent>
         <groupId>com.abeldevelop.architecture</groupId>
-        <artifactId>architecture-parent-pom</artifactId>
+        <artifactId>abeldevelop-parent-pom</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
