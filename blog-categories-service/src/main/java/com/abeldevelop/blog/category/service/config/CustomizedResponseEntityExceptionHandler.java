@@ -18,6 +18,7 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import com.abeldevelop.architecture.library.common.error.ErrorMessages;
+import com.abeldevelop.architecture.library.context.Environments;
 import com.abeldevelop.blog.category.dto.ErrorResponseResource;
 import com.abeldevelop.blog.category.dto.ErrorResponseResource.ErrorResponseResourceBuilder;
 import com.abeldevelop.blog.category.service.exception.AbelDevelopException;
