@@ -19,6 +19,7 @@ import com.abeldevelop.blog.category.dto.CategoryPaginationResponseResource;
 import com.abeldevelop.blog.category.dto.CategoryResponseResource;
 import com.abeldevelop.blog.category.dto.CreateCategoryRequestResource;
 import com.abeldevelop.blog.category.dto.UpdateCategoryRequestResource;
+import com.abeldevelop.blog.category.service.component.validation.ValidationFactory;
 import com.abeldevelop.blog.category.service.domain.Category;
 import com.abeldevelop.blog.category.service.domain.PageRequest;
 import com.abeldevelop.blog.category.service.domain.PaginationResult;
@@ -55,18 +56,19 @@ public class CategoryApiController implements CategoryApi {
 	
 	private final CategoryMapper categoryMapper;
 	private final PaginationMapper paginationMapper;
-	
+
+	private final ValidationFactory validationFactory;
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public CategoryResponseResource executeCreate(@RequestBody CreateCategoryRequestResource createCategoryRequestResource) {
 		
 		log.info(LOG_DATA_IN + "createCategoryRequestResource: {}", EXECUTE_CREATE_METHOD_NAME, createCategoryRequestResource);
-		
+		validationFactory.validate(createCategoryRequestResource);
 		CategoryResponseResource categoryResponseResource = categoryMapper.mapDomainToResource(createCategoryService.executeCreate(categoryMapper.mapResourceToDomain(createCategoryRequestResource)));
 		
 		log.info(LOG_DATA_OUT + "categoryResponseResource: {}", EXECUTE_CREATE_METHOD_NAME, categoryResponseResource);
-
+		validationFactory.validate(categoryResponseResource);
 		return categoryResponseResource;
 	}
 	
@@ -76,11 +78,11 @@ public class CategoryApiController implements CategoryApi {
 	public CategoryResponseResource executeUpdate(@PathVariable("code") String code, @RequestBody UpdateCategoryRequestResource updateCategoryRequestResource) {
 		
 		log.info(LOG_DATA_IN + "code: {}, updateCategoryRequestResource: {}", EXECUTE_UPDATE_METHOD_NAME, code, updateCategoryRequestResource);
-		
+		validationFactory.validate(updateCategoryRequestResource);
 		CategoryResponseResource categoryResponseResource = categoryMapper.mapDomainToResource(updateCategoryService.executeUpdate(code, categoryMapper.mapResourceToDomain(updateCategoryRequestResource)));
 		
 		log.info(LOG_DATA_OUT + "categoryResponseResource: {}", EXECUTE_UPDATE_METHOD_NAME, categoryResponseResource);
-		
+		validationFactory.validate(categoryResponseResource);
 		return categoryResponseResource;
 	}
 	
@@ -106,7 +108,7 @@ public class CategoryApiController implements CategoryApi {
 		CategoryResponseResource categoryResponseResource = categoryMapper.mapDomainToResource(findCategoryService.executeFindByCode(code));
 		
 		log.info(LOG_DATA_OUT + "categoryResponseResource: {}", EXECUTE_FIND_BY_CODE_METHOD_NAME, categoryResponseResource);
-		
+		validationFactory.validate(categoryResponseResource);
 		return categoryResponseResource;
 	}
 	
@@ -129,7 +131,7 @@ public class CategoryApiController implements CategoryApi {
 				.build();
 		
 		log.info(LOG_DATA_OUT + "categoryResponseResource: {}", EXECUTE_FIND_ALL_METHOD_NAME, categoryPaginationResponseResource);
-
+		//TODO validationFactory.validate(categoryPaginationResponseResource)
 		return categoryPaginationResponseResource;
 	}
 }
