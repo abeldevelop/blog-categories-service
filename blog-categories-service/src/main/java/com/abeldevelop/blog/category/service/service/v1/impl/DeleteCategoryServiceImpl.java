@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.abeldevelop.blog.category.model.CategoryEntity;
 import com.abeldevelop.blog.category.repository.CategoryRepository;
 import com.abeldevelop.blog.category.service.component.ErrorMessageProperties;
-import com.abeldevelop.blog.category.service.exception.category.CategoryNotFoundException;
+import com.abeldevelop.blog.category.service.exception.CategoryNotFoundException;
 import com.abeldevelop.blog.category.service.service.v1.DeleteCategoryService;
 
 import lombok.RequiredArgsConstructor;

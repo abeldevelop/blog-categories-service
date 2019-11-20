@@ -9,8 +9,8 @@ import com.abeldevelop.blog.category.model.CategoryEntity;
 import com.abeldevelop.blog.category.repository.CategoryRepository;
 import com.abeldevelop.blog.category.service.component.ErrorMessageProperties;
 import com.abeldevelop.blog.category.service.domain.Category;
-import com.abeldevelop.blog.category.service.exception.category.CategoryExistException;
-import com.abeldevelop.blog.category.service.exception.category.CategoryNotFoundException;
+import com.abeldevelop.blog.category.service.exception.CategoryExistException;
+import com.abeldevelop.blog.category.service.exception.CategoryNotFoundException;
 import com.abeldevelop.blog.category.service.mapper.CategoryMapper;
 import com.abeldevelop.blog.category.service.service.v1.UpdateCategoryService;
 

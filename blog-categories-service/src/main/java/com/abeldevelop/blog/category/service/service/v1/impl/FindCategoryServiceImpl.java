@@ -16,7 +16,7 @@ import com.abeldevelop.blog.category.service.domain.Category;
 import com.abeldevelop.blog.category.service.domain.PageRequest;
 import com.abeldevelop.blog.category.service.domain.PaginationResponse;
 import com.abeldevelop.blog.category.service.domain.PaginationResult;
-import com.abeldevelop.blog.category.service.exception.category.CategoryNotFoundException;
+import com.abeldevelop.blog.category.service.exception.CategoryNotFoundException;
 import com.abeldevelop.blog.category.service.mapper.CategoryMapper;
 import com.abeldevelop.blog.category.service.service.v1.FindCategoryService;
 

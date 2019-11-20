@@ -1,8 +1,8 @@
-package com.abeldevelop.blog.category.service.exception.category;
+package com.abeldevelop.blog.category.service.exception;
 
 import java.util.List;
 
-import com.abeldevelop.blog.category.service.exception.client.BadRequestException;
+import com.abeldevelop.architecture.library.exception.client.BadRequestException;
 
 public class CategoryExistException extends BadRequestException {
 

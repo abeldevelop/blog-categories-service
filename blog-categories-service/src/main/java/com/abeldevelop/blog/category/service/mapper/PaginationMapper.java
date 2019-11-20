@@ -4,12 +4,12 @@ import java.util.Arrays;
 
 import org.springframework.stereotype.Component;
 
+import com.abeldevelop.architecture.library.exception.client.PaginationPageException;
+import com.abeldevelop.architecture.library.exception.client.PaginationSizeException;
 import com.abeldevelop.blog.category.dto.PaginationResponseResource;
 import com.abeldevelop.blog.category.service.component.ErrorMessageProperties;
 import com.abeldevelop.blog.category.service.domain.PaginationRequest;
 import com.abeldevelop.blog.category.service.domain.PaginationResponse;
-import com.abeldevelop.blog.category.service.exception.client.custom.PaginationPageException;
-import com.abeldevelop.blog.category.service.exception.client.custom.PaginationSizeException;
 
 @Component
 public class PaginationMapper {

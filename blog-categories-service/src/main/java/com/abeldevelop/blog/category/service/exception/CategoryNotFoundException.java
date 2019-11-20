@@ -1,8 +1,8 @@
-package com.abeldevelop.blog.category.service.exception.category;
+package com.abeldevelop.blog.category.service.exception;
 
 import java.util.List;
 
-import com.abeldevelop.blog.category.service.exception.client.NotFoundException;
+import com.abeldevelop.architecture.library.exception.client.NotFoundException;
 
 public class CategoryNotFoundException extends NotFoundException {
 

@@ -2,11 +2,11 @@ package com.abeldevelop.blog.category.api.v1;
 
 import org.springframework.web.bind.annotation.PathVariable;
 
+import com.abeldevelop.architecture.library.exception.dto.ErrorResponseResource;
 import com.abeldevelop.architecture.starter.api.SpringFoxConfiguration;
 import com.abeldevelop.blog.category.dto.CategoryPaginationResponseResource;
 import com.abeldevelop.blog.category.dto.CategoryResponseResource;
 import com.abeldevelop.blog.category.dto.CreateCategoryRequestResource;
-import com.abeldevelop.blog.category.dto.ErrorResponseResource;
 import com.abeldevelop.blog.category.dto.UpdateCategoryRequestResource;
 
 import io.swagger.annotations.Api;

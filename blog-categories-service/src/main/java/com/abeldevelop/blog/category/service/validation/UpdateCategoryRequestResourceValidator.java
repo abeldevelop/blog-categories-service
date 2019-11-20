@@ -3,9 +3,9 @@ package com.abeldevelop.blog.category.service.validation;
 import org.springframework.stereotype.Component;
 
 import com.abeldevelop.architecture.library.common.validation.ValidationResource;
+import com.abeldevelop.architecture.library.exception.client.ValidationRequestException;
 import com.abeldevelop.blog.category.dto.UpdateCategoryRequestResource;
 import com.abeldevelop.blog.category.service.component.ErrorMessageProperties;
-import com.abeldevelop.blog.category.service.exception.client.custom.ValidationRequestException;
 
 @Component
 public class UpdateCategoryRequestResourceValidator implements ValidationResource {
