@@ -5,7 +5,7 @@ import java.util.Arrays;
 import org.springframework.stereotype.Component;
 
 import com.abeldevelop.blog.category.dto.PaginationResponseResource;
-import com.abeldevelop.blog.category.service.component.impl.ErrorMessageProperties;
+import com.abeldevelop.blog.category.service.component.ErrorMessageProperties;
 import com.abeldevelop.blog.category.service.domain.PaginationRequest;
 import com.abeldevelop.blog.category.service.domain.PaginationResponse;
 import com.abeldevelop.blog.category.service.exception.client.custom.PaginationPageException;

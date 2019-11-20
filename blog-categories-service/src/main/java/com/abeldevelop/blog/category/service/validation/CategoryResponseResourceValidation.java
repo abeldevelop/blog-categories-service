@@ -2,9 +2,9 @@ package com.abeldevelop.blog.category.service.validation;
 
 import org.springframework.stereotype.Component;
 
+import com.abeldevelop.architecture.library.common.validation.ValidationResource;
 import com.abeldevelop.blog.category.dto.CategoryResponseResource;
-import com.abeldevelop.blog.category.service.component.impl.ErrorMessageProperties;
-import com.abeldevelop.blog.category.service.component.validation.ValidationResource;
+import com.abeldevelop.blog.category.service.component.ErrorMessageProperties;
 import com.abeldevelop.blog.category.service.exception.client.custom.ValidationRequestException;
 import com.abeldevelop.blog.category.service.exception.server.custom.ValidationResponseException;
 

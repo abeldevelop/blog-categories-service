@@ -1,4 +1,4 @@
-package com.abeldevelop.blog.category.service.component.impl;
+package com.abeldevelop.blog.category.service.component;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,7 +6,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Component;
 
-import com.abeldevelop.blog.category.service.component.ErrorMessages;
+import com.abeldevelop.architecture.library.common.error.ErrorMessages;
 
 @Component
 public class ErrorMessageProperties implements ErrorMessages {

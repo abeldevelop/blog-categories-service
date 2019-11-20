@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.abeldevelop.architecture.library.common.validation.ValidationFactory;
 import com.abeldevelop.blog.category.api.v1.CategoryApi;
 import com.abeldevelop.blog.category.dto.CategoryPaginationResponseResource;
 import com.abeldevelop.blog.category.dto.CategoryResponseResource;
 import com.abeldevelop.blog.category.dto.CreateCategoryRequestResource;
 import com.abeldevelop.blog.category.dto.UpdateCategoryRequestResource;
-import com.abeldevelop.blog.category.service.component.validation.ValidationFactory;
 import com.abeldevelop.blog.category.service.domain.Category;
 import com.abeldevelop.blog.category.service.domain.PageRequest;
 import com.abeldevelop.blog.category.service.domain.PaginationResult;
