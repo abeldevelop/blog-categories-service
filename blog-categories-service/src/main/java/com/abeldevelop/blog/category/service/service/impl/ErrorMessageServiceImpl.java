@@ -15,6 +15,8 @@ public class ErrorMessageServiceImpl extends DefaultErrorMessageService {
 
 	private void addMessagesToMap() {
 
+	    
+	    addMessage(ErrorCodesConstants.REQUEST_FIELD_VALUE_NOT_VALID, "The value {} is not one of those available");
 	    addMessage(ErrorCodesConstants.CATEGORY_PAGINATION_RESPONSE_RESOURCE_PAGINATION_RESPONSE_RESOURCE_NOT_NULL, "The pagination cannot be null");
 		
 	    addMessage(ErrorCodesConstants.CATEGORY_CODE_NOT_NULL, "The category code is mandatory");

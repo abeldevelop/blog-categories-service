@@ -6,6 +6,8 @@ public class ErrorCodesConstants {
         
     }
     
+    public static final String REQUEST_FIELD_VALUE_NOT_VALID = "requestFieldValueNotValid";
+    
     public static final String CATEGORY_PAGINATION_RESPONSE_RESOURCE_PAGINATION_RESPONSE_RESOURCE_NOT_NULL = "categoryPaginationResponseResourcePaginationResponseResourceNotNull";
     
     public static final String CATEGORY_CODE_NOT_NULL = "categoryCodeNotNull";

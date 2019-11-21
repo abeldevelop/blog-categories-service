@@ -11,7 +11,9 @@ public class CategorrySpecifications {
 
     public Specification<CategoryEntity> nameLike(String query) {
         return (root, criteriaQuery, criteriaBuilder) -> { 
-            return criteriaBuilder.like(criteriaBuilder.upper(root.get(CategoryEntity_.name)), "%" + query.toUpperCase() + "%");
+            return criteriaBuilder.like(
+                    criteriaBuilder.upper(root.get(CategoryEntity_.name)), 
+                    "%" + query.toUpperCase() + "%");
         };
     }
     

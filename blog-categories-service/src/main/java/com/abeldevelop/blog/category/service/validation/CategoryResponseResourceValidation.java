@@ -22,10 +22,16 @@ public class CategoryResponseResourceValidation implements ValidationResource {
             throw new ValidationRequestException(ErrorCodesConstants.CATEGORY_CODE_NOT_NULL);
         }
         CategoryResponseResource categoryResponseResource = (CategoryResponseResource) toValidate;
-        if(categoryResponseResource.getCode() == null || categoryResponseResource.getCode().length() < 3 || categoryResponseResource.getCode().length() > 25) {
+        if(categoryResponseResource.getCode() == null) {
+            throw new ValidationResponseException(ErrorCodesConstants.CATEGORY_CODE_NOT_NULL);
+        }
+        if(categoryResponseResource.getCode() == null) {
             throw new ValidationResponseException(ErrorCodesConstants.CATEGORY_CODE_SIZE);
         }
-        if(categoryResponseResource.getName() == null || categoryResponseResource.getName().length() < 3 || categoryResponseResource.getName().length() > 25) {
+        if(categoryResponseResource.getName() == null) {
+            throw new ValidationResponseException(ErrorCodesConstants.CATEGORY_NAME_NOT_NULL);
+        }
+        if(categoryResponseResource.getName().length() < 3 || categoryResponseResource.getName().length() > 25) {
             throw new ValidationResponseException(ErrorCodesConstants.CATEGORY_NAME_SIZE);
         }
     }

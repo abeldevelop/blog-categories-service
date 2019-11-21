@@ -21,7 +21,10 @@ public class UpdateCategoryRequestResourceValidator implements ValidationResourc
             throw new ValidationRequestException(ErrorCodesConstants.CATEGORY_NAME_NOT_NULL);
         }
         UpdateCategoryRequestResource updateCategoryRequestResource = (UpdateCategoryRequestResource) toValidate;
-        if(updateCategoryRequestResource.getName() == null || updateCategoryRequestResource.getName().length() < 3 || updateCategoryRequestResource.getName().length() > 25) {
+        if(updateCategoryRequestResource.getName() == null) {
+            throw new ValidationRequestException(ErrorCodesConstants.CATEGORY_NAME_NOT_NULL);
+        }
+        if(updateCategoryRequestResource.getName().length() < 3 || updateCategoryRequestResource.getName().length() > 25) {
             throw new ValidationRequestException(ErrorCodesConstants.CATEGORY_NAME_SIZE);
         }
     }

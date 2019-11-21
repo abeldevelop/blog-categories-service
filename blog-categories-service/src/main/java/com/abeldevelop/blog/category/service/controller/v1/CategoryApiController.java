@@ -21,10 +21,12 @@ import com.abeldevelop.architecture.library.pagination.mapper.PaginationMapper;
 import com.abeldevelop.blog.category.api.v1.CategoryApi;
 import com.abeldevelop.blog.category.dto.CategoryPaginationResponseResource;
 import com.abeldevelop.blog.category.dto.CategoryResponseResource;
+import com.abeldevelop.blog.category.dto.CategorySort;
 import com.abeldevelop.blog.category.dto.CreateCategoryRequestResource;
 import com.abeldevelop.blog.category.dto.UpdateCategoryRequestResource;
 import com.abeldevelop.blog.category.service.domain.Category;
 import com.abeldevelop.blog.category.service.mapper.CategoryMapper;
+import com.abeldevelop.blog.category.service.mapper.CategorySortMapper;
 import com.abeldevelop.blog.category.service.service.v1.CreateCategoryService;
 import com.abeldevelop.blog.category.service.service.v1.DeleteCategoryService;
 import com.abeldevelop.blog.category.service.service.v1.FindAllCategoriesService;
@@ -58,9 +60,11 @@ public class CategoryApiController implements CategoryApi {
 	
 	private final CategoryMapper categoryMapper;
 	private final PaginationMapper paginationMapper;
-
+	private final CategorySortMapper categorySortMapper;
+	
 	private final ValidationFactory validationFactory;
 	
+	@Override
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public CategoryResponseResource executeCreate(@RequestBody CreateCategoryRequestResource createCategoryRequestResource) {
@@ -74,7 +78,7 @@ public class CategoryApiController implements CategoryApi {
 		return categoryResponseResource;
 	}
 	
-	
+	@Override
 	@PutMapping("/{code}")
 	@ResponseStatus(HttpStatus.OK)
 	public CategoryResponseResource executeUpdate(@PathVariable("code") String code, @RequestBody UpdateCategoryRequestResource updateCategoryRequestResource) {
@@ -88,7 +92,7 @@ public class CategoryApiController implements CategoryApi {
 		return categoryResponseResource;
 	}
 	
-	
+	@Override
 	@DeleteMapping("/{code}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void executeDelete(@PathVariable("code") String code) {
@@ -101,6 +105,7 @@ public class CategoryApiController implements CategoryApi {
 	}
 
 
+	@Override
 	@GetMapping("/{code}")
 	@ResponseStatus(HttpStatus.OK)
 	public CategoryResponseResource executeFindByCode(@PathVariable("code") String code) {
@@ -115,15 +120,20 @@ public class CategoryApiController implements CategoryApi {
 	}
 	
 	
+	@Override
 	@GetMapping
 	@ResponseStatus(HttpStatus.OK)
 	public CategoryPaginationResponseResource executeFindAll(
 			@RequestParam(name = "page", required = false) Integer page, 
 			@RequestParam(name = "size", required = false) Integer size, 
+			@RequestParam(name = "sort", required = false) CategorySort sort,
 			@RequestParam(name = "query", required = false) String query) {
-		log.info(LOG_DATA_IN + "page: {}, size: {}, query: {}", EXECUTE_FIND_ALL_METHOD_NAME, page, size, query);
+		log.info(LOG_DATA_IN + "page: {}, size: {}, sort: {}, query: {}", EXECUTE_FIND_ALL_METHOD_NAME, page, size, sort, query);
 		
-		PageIn pageRequest = PageIn.builder().pagination(paginationMapper.map(page, size)).build();
+		PageIn pageRequest = PageIn.builder()
+		        .pagination(paginationMapper.map(page, size))
+		        .sort(categorySortMapper.map(sort))
+		        .build();
 		
 		PaginationResult<Category> paginationResult = findAllCategoriesService.executeFindAll(pageRequest, query);
 		

@@ -6,6 +6,7 @@ import com.abeldevelop.architecture.library.exception.dto.ErrorResponseResource;
 import com.abeldevelop.architecture.starter.api.SpringFoxConfiguration;
 import com.abeldevelop.blog.category.dto.CategoryPaginationResponseResource;
 import com.abeldevelop.blog.category.dto.CategoryResponseResource;
+import com.abeldevelop.blog.category.dto.CategorySort;
 import com.abeldevelop.blog.category.dto.CreateCategoryRequestResource;
 import com.abeldevelop.blog.category.dto.UpdateCategoryRequestResource;
 
@@ -59,6 +60,7 @@ public interface CategoryApi {
 	@ApiImplicitParams({
 		@ApiImplicitParam(name = "page", value = "Number of page", required = false, example="1", defaultValue="1", dataType = "int", paramType = "query"),
 		@ApiImplicitParam(name = "size", value = "Size of page", required = false, example="1", defaultValue="10", dataType = "int", paramType = "query"),
+		@ApiImplicitParam(name = "sort", value = "Field and type to sort the fields", required = false, defaultValue = "NAME_DESC", example="NAME_DESC", dataType = "string", paramType = "query"),
 		@ApiImplicitParam(name = "query", value = "Name or part of category name to search", required = false, example="fir", dataType = "string", paramType = "query")
 	})
 	@ApiResponses({ 
@@ -67,6 +69,6 @@ public interface CategoryApi {
 		@ApiResponse(code = 404, response = ErrorResponseResource.class, message = SpringFoxConfiguration.API_RESPONSE_CODE_404_MESSAGE),
 		@ApiResponse(code = 500, response = ErrorResponseResource.class, message = SpringFoxConfiguration.API_RESPONSE_CODE_500_MESSAGE)
 	})
-	public CategoryPaginationResponseResource executeFindAll(Integer page, Integer size, String query);
+	public CategoryPaginationResponseResource executeFindAll(Integer page, Integer size, CategorySort sort, String query);
 	
 }

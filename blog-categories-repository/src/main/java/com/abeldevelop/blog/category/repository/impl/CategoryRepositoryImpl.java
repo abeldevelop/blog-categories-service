@@ -34,6 +34,12 @@ public class CategoryRepositoryImpl implements CategoryRepository {
 		categorySpringDataRepository.deleteById(code);
 	}
 
+	@Override
+    public Page<CategoryEntity> executeFindAll(Pageable pageable) {
+        return categorySpringDataRepository.findAll(pageable);
+    }
+	
+	@Override
     public Page<CategoryEntity> executeFindAll(Specification<CategoryEntity> spec, Pageable pageable) {
         return categorySpringDataRepository.findAll(spec, pageable);
     }
