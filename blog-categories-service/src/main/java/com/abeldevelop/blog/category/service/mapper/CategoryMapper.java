@@ -2,12 +2,12 @@ package com.abeldevelop.blog.category.service.mapper;
 
 import org.springframework.stereotype.Component;
 
+import com.abeldevelop.architecture.library.common.util.StringUtils;
 import com.abeldevelop.blog.category.dto.CategoryResponseResource;
 import com.abeldevelop.blog.category.dto.CreateCategoryRequestResource;
 import com.abeldevelop.blog.category.dto.UpdateCategoryRequestResource;
 import com.abeldevelop.blog.category.model.CategoryEntity;
 import com.abeldevelop.blog.category.service.domain.Category;
-import com.abeldevelop.blog.category.service.util.StringUtils;
 
 @Component
 public class CategoryMapper {

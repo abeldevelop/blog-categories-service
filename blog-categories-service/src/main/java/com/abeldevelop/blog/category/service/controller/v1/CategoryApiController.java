@@ -15,19 +15,20 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.abeldevelop.architecture.library.common.validation.ValidationFactory;
+import com.abeldevelop.architecture.library.pagination.domain.PageIn;
+import com.abeldevelop.architecture.library.pagination.domain.PaginationResult;
+import com.abeldevelop.architecture.library.pagination.mapper.PaginationMapper;
 import com.abeldevelop.blog.category.api.v1.CategoryApi;
 import com.abeldevelop.blog.category.dto.CategoryPaginationResponseResource;
 import com.abeldevelop.blog.category.dto.CategoryResponseResource;
 import com.abeldevelop.blog.category.dto.CreateCategoryRequestResource;
 import com.abeldevelop.blog.category.dto.UpdateCategoryRequestResource;
 import com.abeldevelop.blog.category.service.domain.Category;
-import com.abeldevelop.blog.category.service.domain.PageRequest;
-import com.abeldevelop.blog.category.service.domain.PaginationResult;
 import com.abeldevelop.blog.category.service.mapper.CategoryMapper;
-import com.abeldevelop.blog.category.service.mapper.PaginationMapper;
 import com.abeldevelop.blog.category.service.service.v1.CreateCategoryService;
 import com.abeldevelop.blog.category.service.service.v1.DeleteCategoryService;
-import com.abeldevelop.blog.category.service.service.v1.FindCategoryService;
+import com.abeldevelop.blog.category.service.service.v1.FindAllCategoriesService;
+import com.abeldevelop.blog.category.service.service.v1.FindCategoryByCodeService;
 import com.abeldevelop.blog.category.service.service.v1.UpdateCategoryService;
 
 import lombok.RequiredArgsConstructor;
@@ -52,7 +53,8 @@ public class CategoryApiController implements CategoryApi {
 	private final CreateCategoryService createCategoryService;
 	private final UpdateCategoryService updateCategoryService;
 	private final DeleteCategoryService deleteCategoryService;
-	private final FindCategoryService findCategoryService;
+	private final FindCategoryByCodeService findCategoryByCodeService;
+	private final FindAllCategoriesService findAllCategoriesService;
 	
 	private final CategoryMapper categoryMapper;
 	private final PaginationMapper paginationMapper;
@@ -105,7 +107,7 @@ public class CategoryApiController implements CategoryApi {
 
 		log.info(LOG_DATA_IN + "code: {}", EXECUTE_FIND_BY_CODE_METHOD_NAME, code);
 		
-		CategoryResponseResource categoryResponseResource = categoryMapper.mapDomainToResource(findCategoryService.executeFindByCode(code));
+		CategoryResponseResource categoryResponseResource = categoryMapper.mapDomainToResource(findCategoryByCodeService.executeFindByCode(code));
 		
 		log.info(LOG_DATA_OUT + "categoryResponseResource: {}", EXECUTE_FIND_BY_CODE_METHOD_NAME, categoryResponseResource);
 		validationFactory.validate(categoryResponseResource);
@@ -121,9 +123,9 @@ public class CategoryApiController implements CategoryApi {
 			@RequestParam(name = "query", required = false) String query) {
 		log.info(LOG_DATA_IN + "page: {}, size: {}, query: {}", EXECUTE_FIND_ALL_METHOD_NAME, page, size, query);
 		
-		PageRequest pageRequest = PageRequest.builder().pagination(paginationMapper.map(page, size)).build();
+		PageIn pageRequest = PageIn.builder().pagination(paginationMapper.map(page, size)).build();
 		
-		PaginationResult<Category> paginationResult = findCategoryService.executeFindAll(pageRequest, query);
+		PaginationResult<Category> paginationResult = findAllCategoriesService.executeFindAll(pageRequest, query);
 		
 		CategoryPaginationResponseResource categoryPaginationResponseResource = CategoryPaginationResponseResource.builder()
 				.pagination(paginationMapper.map(paginationResult.getPagination()))

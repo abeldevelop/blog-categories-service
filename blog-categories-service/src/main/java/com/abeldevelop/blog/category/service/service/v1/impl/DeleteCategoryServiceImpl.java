@@ -7,9 +7,9 @@ import org.springframework.stereotype.Service;
 
 import com.abeldevelop.blog.category.model.CategoryEntity;
 import com.abeldevelop.blog.category.repository.CategoryRepository;
-import com.abeldevelop.blog.category.service.component.ErrorMessageProperties;
 import com.abeldevelop.blog.category.service.exception.CategoryNotFoundException;
 import com.abeldevelop.blog.category.service.service.v1.DeleteCategoryService;
+import com.abeldevelop.blog.category.service.util.ErrorCodesConstants;
 
 import lombok.RequiredArgsConstructor;
 
@@ -29,7 +29,7 @@ public class DeleteCategoryServiceImpl implements DeleteCategoryService {
 	private void checkIfCategoryExist(String code) {
 		Optional<CategoryEntity> categoryEntityOptional = categoryRepository.executeFindById(code);
 		if(!categoryEntityOptional.isPresent()) {
-			throw new CategoryNotFoundException(ErrorMessageProperties.CATEGORY_NOT_FOUND, Arrays.asList(code));
+			throw new CategoryNotFoundException(ErrorCodesConstants.CATEGORY_NOT_FOUND, Arrays.asList(code));
 		}
 	}
 }

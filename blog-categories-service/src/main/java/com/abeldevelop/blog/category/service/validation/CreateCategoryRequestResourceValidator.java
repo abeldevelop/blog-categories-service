@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import com.abeldevelop.architecture.library.common.validation.ValidationResource;
 import com.abeldevelop.architecture.library.exception.client.ValidationRequestException;
 import com.abeldevelop.blog.category.dto.CreateCategoryRequestResource;
-import com.abeldevelop.blog.category.service.component.ErrorMessageProperties;
+import com.abeldevelop.blog.category.service.util.ErrorCodesConstants;
 
 @Component
 public class CreateCategoryRequestResourceValidator implements ValidationResource {
@@ -18,11 +18,11 @@ public class CreateCategoryRequestResourceValidator implements ValidationResourc
     @Override
     public void validate(Object toValidate) {
         if(toValidate == null) {
-            throw new ValidationRequestException(ErrorMessageProperties.CATEGORY_NAME_NOT_NULL);
+            throw new ValidationRequestException(ErrorCodesConstants.CATEGORY_NAME_NOT_NULL);
         }
         CreateCategoryRequestResource createCategoryRequestResource = (CreateCategoryRequestResource) toValidate;
         if(createCategoryRequestResource.getName() == null || createCategoryRequestResource.getName().length() < 3 || createCategoryRequestResource.getName().length() > 25) {
-            throw new ValidationRequestException(ErrorMessageProperties.CATEGORY_NAME_SIZE);
+            throw new ValidationRequestException(ErrorCodesConstants.CATEGORY_NAME_SIZE);
         }
     }
 }
