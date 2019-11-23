@@ -32,7 +32,12 @@
         <dependency>
             <groupId>com.abeldevelop.architecture.starter</groupId>
             <artifactId>service-starter</artifactId>
-        </dependency>	   
+        </dependency>
+        <dependency>
+            <groupId>com.abeldevelop.architecture.starter</groupId>
+            <artifactId>test-starter</artifactId>
+            <scope>test</scope>
+        </dependency> 
 	</dependencies>
 
 	<build>
