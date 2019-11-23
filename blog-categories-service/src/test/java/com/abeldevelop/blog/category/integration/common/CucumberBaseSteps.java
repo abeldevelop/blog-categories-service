@@ -2,11 +2,11 @@ package com.abeldevelop.blog.category.integration.common;
 
 import org.springframework.boot.web.server.LocalServerPort;
 
-import com.abeldevelop.blog.category.integration.config.TestContext;
+import com.abeldevelop.blog.category.integration.config.CucumberTestContext;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
-public class BaseSteps {
+public class CucumberBaseSteps {
 
     @LocalServerPort
     private int port;
@@ -15,8 +15,8 @@ public class BaseSteps {
         return "http://localhost:" + port;
     }
 
-    public TestContext testContext() {
-        return TestContext.CONTEXT;
+    public CucumberTestContext testContext() {
+        return CucumberTestContext.CONTEXT;
     }
     
     @SuppressWarnings("unchecked")

@@ -3,7 +3,8 @@ package com.abeldevelop.blog.category.integration.steps;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.abeldevelop.architecture.library.exception.dto.ErrorResponseResource;
-import com.abeldevelop.blog.category.integration.common.BaseSteps;
+import com.abeldevelop.blog.category.integration.common.CucumberBaseSteps;
+import com.abeldevelop.blog.category.integration.common.CucumberTestConstants;
 import com.abeldevelop.blog.category.integration.common.MakeRestCall;
 import com.atlassian.oai.validator.OpenApiInteractionValidator;
 import com.atlassian.oai.validator.model.Request;
@@ -23,7 +24,7 @@ import io.cucumber.java.en.When;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class CommonSteps extends BaseSteps {
+public class CucumberCommonSteps extends CucumberBaseSteps {
 
     Class<?> requestResourceClazz;
     
@@ -35,27 +36,27 @@ public class CommonSteps extends BaseSteps {
     @And("The resource {}")
     public void the_resource(String className) throws ClassNotFoundException {
         testContext().getTestCase();
-        log.info("START STEP => the_resource {}", className);
+        log.debug(CucumberTestConstants.INTEGRATION_TEST + "START STEP => the_resource {}", className);
         requestResourceClazz = Class.forName(className);
-        log.info("END STEP => the_resource {}", className);
+        log.debug(CucumberTestConstants.INTEGRATION_TEST + "END STEP => the_resource {}", className);
     }
     
     @And("The input data")
     public void the_input_data(DataTable datatable) throws JsonProcessingException {
-        log.info("START STEP => the_input_data");
-        log.info("datatable: {}", datatable);
+        log.debug(CucumberTestConstants.INTEGRATION_TEST + "START STEP => the_input_data");
+        log.debug(CucumberTestConstants.INTEGRATION_TEST + "datatable: {}", datatable);
         Object requestBody = datatable.asList(requestResourceClazz).get(0);
         String requestBodyInString = new ObjectMapper().writeValueAsString(requestBody);
         testContext().setRequestBody(requestBodyInString);
-        log.info("requestBodyInString: " + requestBodyInString);
-        log.info("END STEP => the_input_data");
+        log.debug(CucumberTestConstants.INTEGRATION_TEST + "requestBodyInString: " + requestBodyInString);
+        log.debug(CucumberTestConstants.INTEGRATION_TEST + "END STEP => the_input_data");
     }
 
     @When("Make {string} call")
     public void make_call_to_the_endpoint(String method) throws Exception {
-        log.info("START STEP => Make {} call", method);
+        log.debug(CucumberTestConstants.INTEGRATION_TEST + "START STEP => Make {} call", method);
         new MakeRestCall(testContext()).call(method);
-        log.info("END STEP => Make {} call", method);
+        log.debug(CucumberTestConstants.INTEGRATION_TEST + "END STEP => Make {} call", method);
     }
     
     private void generateTheFullEndpoint(String endpoint) {
@@ -64,27 +65,27 @@ public class CommonSteps extends BaseSteps {
     
     @Then("I verify the {int} response code")
     public void i_verify_the_response_code(Integer expectedStatusCode) {
-        log.info("START STEP => I verify the {} response code", expectedStatusCode);
+        log.debug(CucumberTestConstants.INTEGRATION_TEST + "START STEP => I verify the {} response code", expectedStatusCode);
         assertThat(testContext().getResponseStatus()).isEqualTo(expectedStatusCode);
-        log.info("END STEP => I verify the {} response code", expectedStatusCode);
+        log.debug(CucumberTestConstants.INTEGRATION_TEST + "END STEP => I verify the {} response code", expectedStatusCode);
     }
     
     @And("If response code not {int} i verify the error response message {}")
     public void i_verify_the_error_response_message(Integer expectedResponseCode, String errorResponseMessage) throws Exception {
-        log.info("START STEP => If response code not {} i verify the error response message {}", expectedResponseCode, errorResponseMessage);
+        log.debug(CucumberTestConstants.INTEGRATION_TEST + "START STEP => If response code not {} i verify the error response message {}", expectedResponseCode, errorResponseMessage);
         if(testContext().getResponseStatus() != expectedResponseCode) {
             ObjectMapper mapper = new ObjectMapper();
             mapper.registerModule(new JavaTimeModule());
             try {
                 ErrorResponseResource errorResponseResource = mapper.readValue(testContext().getResponseBody(), ErrorResponseResource.class);
                 assertThat(errorResponseResource.getMessage()).isEqualTo(errorResponseMessage);
-                log.info("I verify the error response message {}.", errorResponseMessage);
+                log.debug(CucumberTestConstants.INTEGRATION_TEST + "I verify the error response message {}.", errorResponseMessage);
             } catch (Exception e) {
                 e.printStackTrace();
                 assertThat(false).isEqualTo(true);
             }
         }
-        log.info("END STEP => If response code not {} i verify the error response message {}", expectedResponseCode, errorResponseMessage);
+        log.debug(CucumberTestConstants.INTEGRATION_TEST + "END STEP => If response code not {} i verify the error response message {}", expectedResponseCode, errorResponseMessage);
     }
     
     @And("If response code is {int} i verify the contract for path {} and method {}")
@@ -102,7 +103,7 @@ public class CommonSteps extends BaseSteps {
             final ValidationReport report = validator.validateResponse(path, getRequestMethod(method), response);
             if(report.hasErrors()) {
                 for(Message message : report.getMessages()) {
-                    log.error("Contract errors => {}", message.getMessage());
+                    log.debug(CucumberTestConstants.INTEGRATION_TEST + "Contract errors => {}", message.getMessage());
                 }
                 assertThat(false).as("The response contract is not correct").isEqualTo(true);
             }

@@ -7,7 +7,7 @@ import java.util.Map;
 
 import org.springframework.http.HttpHeaders;
 
-public enum TestContext {
+public enum CucumberTestContext {
 
     CONTEXT;
 

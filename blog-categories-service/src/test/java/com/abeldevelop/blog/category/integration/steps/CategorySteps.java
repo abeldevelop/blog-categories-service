@@ -4,13 +4,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.abeldevelop.blog.category.dto.CategoryPaginationResponseResource;
 import com.abeldevelop.blog.category.dto.CategoryResponseResource;
-import com.abeldevelop.blog.category.integration.common.BaseSteps;
+import com.abeldevelop.blog.category.integration.common.CucumberBaseSteps;
 
 import io.cucumber.java.en.And;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class CategorySteps extends BaseSteps {
+public class CategorySteps extends CucumberBaseSteps {
 
     
     @And("If response code is {int} i verify the category code  {}")

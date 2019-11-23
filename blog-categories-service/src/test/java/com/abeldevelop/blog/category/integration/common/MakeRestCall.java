@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
-import com.abeldevelop.blog.category.integration.config.TestContext;
+import com.abeldevelop.blog.category.integration.config.CucumberTestContext;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -17,14 +17,14 @@ import lombok.extern.slf4j.Slf4j;
 public class MakeRestCall {
 
     private HttpEntity<?> requestHttpEntity;
-    private TestContext testContext;
+    private CucumberTestContext testContext;
     
-    public MakeRestCall(TestContext testContext) {
+    public MakeRestCall(CucumberTestContext testContext) {
         this.testContext = testContext;
     }
     
     public void call(String method) throws Exception {
-        log.info("Make {} call", method);
+        log.debug(CucumberTestConstants.INTEGRATION_TEST + "Make {} call", method);
         switch(method) {
             case "POST":
                 makeRestCall(HttpMethod.POST);
@@ -55,11 +55,11 @@ public class MakeRestCall {
     private void makeRestCall(HttpMethod method) throws Exception {
         createRequestHttpEntity();
         try {
-            log.info("RestTemplate REQUEST url: {}", testContext.getRequestEndpoint());
-            log.info("RestTemplate REQUEST method: {}", method);
-            log.info("RestTemplate REQUEST requestEntity: {}", requestHttpEntity);
+            log.debug(CucumberTestConstants.INTEGRATION_TEST + "RestTemplate REQUEST url: {}", testContext.getRequestEndpoint());
+            log.debug(CucumberTestConstants.INTEGRATION_TEST + "RestTemplate REQUEST method: {}", method);
+            log.debug(CucumberTestConstants.INTEGRATION_TEST + "RestTemplate REQUEST requestEntity: {}", requestHttpEntity);
             ResponseEntity<String> response = new RestTemplate().exchange(testContext.getRequestEndpoint(), method, requestHttpEntity, String.class);
-            log.info("RestTemplate RESPONSE: {}", response);
+            log.debug(CucumberTestConstants.INTEGRATION_TEST + "RestTemplate RESPONSE: {}", response);
             addResponseInformationToContext(response);
         } catch (Exception e) {
             if(e instanceof HttpClientErrorException) {
