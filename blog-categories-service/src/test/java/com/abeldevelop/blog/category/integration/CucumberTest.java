@@ -11,6 +11,10 @@ import io.cucumber.junit.CucumberOptions;
         plugin = {
                 "progress",
                 "json:target/cucumber-report.json"
+        },
+        glue = {
+                "com.abeldevelop.architecture.library.test.integration.cucumber",
+                "com.abeldevelop.blog.category.integration"
         }
 )
 public class CucumberTest {
