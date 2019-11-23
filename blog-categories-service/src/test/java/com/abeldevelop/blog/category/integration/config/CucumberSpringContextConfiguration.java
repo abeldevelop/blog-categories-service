@@ -8,7 +8,7 @@ import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 
-import com.abeldevelop.blog.category.integration.common.CucumberTestConstants;
+import com.abeldevelop.architecture.library.test.integration.cucumber.common.CucumberTestConstants;
 
 import io.cucumber.core.api.Scenario;
 import io.cucumber.java.Before;

@@ -3,9 +3,9 @@ package com.abeldevelop.blog.category.integration.steps;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.abeldevelop.architecture.library.exception.dto.ErrorResponseResource;
-import com.abeldevelop.blog.category.integration.common.CucumberBaseSteps;
-import com.abeldevelop.blog.category.integration.common.CucumberTestConstants;
-import com.abeldevelop.blog.category.integration.common.MakeRestCall;
+import com.abeldevelop.architecture.library.test.integration.cucumber.common.CucumberBaseSteps;
+import com.abeldevelop.architecture.library.test.integration.cucumber.common.CucumberTestConstants;
+import com.abeldevelop.architecture.library.test.integration.cucumber.common.MakeRestCall;
 import com.atlassian.oai.validator.OpenApiInteractionValidator;
 import com.atlassian.oai.validator.model.Request;
 import com.atlassian.oai.validator.model.Response;

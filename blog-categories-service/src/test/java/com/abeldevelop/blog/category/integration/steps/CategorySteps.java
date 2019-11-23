@@ -2,9 +2,9 @@ package com.abeldevelop.blog.category.integration.steps;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import com.abeldevelop.architecture.library.test.integration.cucumber.common.CucumberBaseSteps;
 import com.abeldevelop.blog.category.dto.CategoryPaginationResponseResource;
 import com.abeldevelop.blog.category.dto.CategoryResponseResource;
-import com.abeldevelop.blog.category.integration.common.CucumberBaseSteps;
 
 import io.cucumber.java.en.And;
 import lombok.extern.slf4j.Slf4j;
