@@ -6,7 +6,7 @@
 
 	<parent>
 		<groupId>com.abeldevelop.blog.categories</groupId>
-		<artifactId>blog-categories</artifactId>
+		<artifactId>blog-categories-parent-pom</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
@@ -20,12 +20,13 @@
 	</properties>
 
 	<dependencies>
-		<!-- OWN SERVICE DEPENDECIES -->
+		<!-- BLOG CATEGORIES DEPENDECIES -->
 		<dependency>
 	       <groupId>com.abeldevelop.blog.categories</groupId>
 	       <artifactId>blog-categories-model</artifactId>
-	       <version>${project.version}</version>
 	   </dependency>
+	   
+	   <!-- ABELDEVELOP DEPENDECIES -->
 	   <dependency>
             <groupId>com.abeldevelop.architecture.starter</groupId>
             <artifactId>repository-starter</artifactId>
