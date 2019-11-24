@@ -6,12 +6,12 @@
     <parent>
         <groupId>com.abeldevelop.architecture</groupId>
         <artifactId>abeldevelop-parent-pom</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>0.0.2-SNAPSHOT</version>
     </parent>
 
     <groupId>com.abeldevelop.blog.categories</groupId>
     <artifactId>blog-categories-parent-pom</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.2-SNAPSHOT</version>
     <packaging>pom</packaging>
     
     <name>${project.artifactId}</name>

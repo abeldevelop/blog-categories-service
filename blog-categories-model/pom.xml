@@ -7,7 +7,7 @@
 	<parent>
 		<groupId>com.abeldevelop.blog.categories</groupId>
 		<artifactId>blog-categories-parent-pom</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>0.0.2-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>blog-categories-model</artifactId>
