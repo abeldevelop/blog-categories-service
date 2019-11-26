@@ -28,6 +28,11 @@ public class CategoryRepositoryImpl implements CategoryRepository {
 	public Optional<CategoryEntity> executeFindById(String id) {
 		return categorySpringDataRepository.findById(id);
 	}
+
+	@Override
+    public Optional<CategoryEntity> executeFindOne(Specification<CategoryEntity> spec) {
+        return categorySpringDataRepository.findOne(spec);
+    }
 	
 	@Override
 	public void executeDeleteById(String code) {

@@ -14,6 +14,8 @@ public interface CategoryRepository {
 	
 	public Optional<CategoryEntity> executeFindById(String id);
 	
+	public Optional<CategoryEntity> executeFindOne(Specification<CategoryEntity> spec);
+	
 	public void executeDeleteById(String code);
 
 	public Page<CategoryEntity> executeFindAll(Pageable pageable);
